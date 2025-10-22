@@ -14,20 +14,21 @@ int main() {
     printf("Portfoyun standart sapmasi (%% olarak): ");
     scanf("%lf", &standartSapma);
 
-    // Oranlarý yüzde cinsinden girdiðimiz için 100'e bölüyoruz
+    // Sharpe oranÄ± formÃ¼lÃ¼
     sharpeOrani = (yatirimGetirisi - risksizFaiz) / standartSapma;
 
-    printf("\nSharpe Orani: %.2f\n", sharpeOrani);
+    printf("\nSharpe Orani = (%.2f - %.2f) / %.2f = %.2f\n",
+           yatirimGetirisi, risksizFaiz, standartSapma, sharpeOrani);
 
+    // SonuÃ§ yorumu
     if (sharpeOrani < 1)
         printf("Bu oran dusuk, risk getiriyi karsilamiyor olabilir.\n");
     else if (sharpeOrani >= 1 && sharpeOrani < 2)
         printf("Sharpe orani iyi bir seviyede.\n");
     else if (sharpeOrani >= 2 && sharpeOrani < 3)
         printf("Sharpe orani cok iyi bir seviyede.\n");
-    else
+    else if (sharpeOrani >= 3)
         printf("Sharpe orani mukemmel bir seviyede!\n");
 
     return 0;
 }
-
